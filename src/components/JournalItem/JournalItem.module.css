@@ -1,0 +1,32 @@
+.journalItem__body {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+}
+
+.journalItem__title {
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.journalItem__date {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.journalItem__text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.6);
+}
