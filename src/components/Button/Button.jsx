@@ -1,15 +1,9 @@
-import styles from "./Button.module.css";
+import "./Button.css";
 
-export default function Button() {
-  const clicked = () => {
-    console.log("Clicked");
-  };
-
+export default function Button({ text }) {
   return (
     <>
-      <button className={`${styles.button} ${styles.accent}`} onClick={clicked}>
-        Сохранить
-      </button>
+      <button className="button accent">{text}</button>
     </>
   );
 }

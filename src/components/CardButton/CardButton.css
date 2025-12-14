@@ -1,10 +1,9 @@
-.cardButton {
+.card-btn {
   display: flex;
   flex-direction: column;
   gap: 10px;
   text-align: start;
-  width: 362px;
-  height: 100px;
+  width: 100%;
   padding: 20px;
   border: none;
   border-radius: 3px;
@@ -13,6 +12,6 @@
   cursor: pointer;
 }
 
-.cardButton:hover {
+.card-btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
