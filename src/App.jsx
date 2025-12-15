@@ -21,13 +21,7 @@ function App() {
       <LeftPanel>
         <Header />
         <JournalAddButton />
-        <JournalList>
-          {data.map((item) => (
-            <CardButton key={item.id}>
-              <JournalItem {...item} />
-            </CardButton>
-          ))}
-        </JournalList>
+        <JournalList items={data} />
       </LeftPanel>
       <Body>
         <h1>Body</h1>
