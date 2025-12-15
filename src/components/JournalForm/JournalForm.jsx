@@ -1,13 +1,16 @@
-import "./JournalForm.css";
-import { useState } from "react";
+import { nanoid } from "nanoid";
 import Button from "../Button/Button";
+import "./JournalForm.css";
 
-export default function JournalForm() {
+export default function JournalForm({ onSubmit }) {
   const addJournalItem = (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const formProps = Object.fromEntries(formData);
-    console.log(formProps);
+    formProps.id = nanoid();
+    formProps.date = new Date(formProps.date + "T12:00");
+    onSubmit(formProps);
   };
 
   return (
