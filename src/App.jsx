@@ -1,40 +1,39 @@
+import { useState } from "react";
 import "./App.css";
-import Button from "./components/Button/Button";
 import CardButton from "./components/CardButton/CardButton";
+import Header from "./components/Header/Header";
+import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
+import JournalForm from "./components/JournalForm/JournalForm";
 import JournalItem from "./components/JournalItem/JournalItem";
-
-const cards = [
-  {
-    title: "Подготовка к обновлению курсов",
-    date: new Date(),
-    text: "Сегодня провёл весь день за...",
-  },
-  {
-    title: "Поход в годы",
-    date: new Date(),
-    text: "Думал, что очень много време...",
-  },
-  {
-    title: "Первая заметка",
-    date: new Date(),
-    text: "Создал первую заметку, чтобы ...",
-  },
-];
+import JournalList from "./components/JournalList/JournalList";
+import Body from "./components/layout/Body/Body";
+import LeftPanel from "./components/layout/LeftPanel/LeftPanel";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  const addJournalItem = (item) => {
+    setData((prev) => [...prev, item]);
+  };
+
   return (
-    <>
-      <CardButton>
-        <JournalItem {...cards[0]} />
-      </CardButton>
-      <CardButton>
-        <JournalItem {...cards[1]} />
-      </CardButton>
-      <CardButton>
-        <JournalItem {...cards[2]} />
-      </CardButton>
-      <Button />
-    </>
+    <div className="app">
+      <LeftPanel>
+        <Header />
+        <JournalAddButton />
+        <JournalList>
+          {data.map((item) => (
+            <CardButton key={item.id}>
+              <JournalItem {...item} />
+            </CardButton>
+          ))}
+        </JournalList>
+      </LeftPanel>
+      <Body>
+        <h1>Body</h1>
+        <JournalForm onSubmit={addJournalItem} />
+      </Body>
+    </div>
   );
 }
 

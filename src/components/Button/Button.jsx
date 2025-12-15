@@ -1,9 +1,11 @@
-import styles from "./Button.module.css";
+import "./Button.css";
 
-export default function Button() {
+export default function Button({ text, onClick }) {
   return (
     <>
-      <button className={`${styles.button} ${styles.accent}`}>Сохранить</button>
+      <button className="button accent" onClick={onClick}>
+        {text}
+      </button>
     </>
   );
 }
