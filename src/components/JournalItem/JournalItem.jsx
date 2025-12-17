@@ -1,7 +1,9 @@
 import styles from "./JournalItem.module.css";
 
 export default function JournalItem({ title, date, text }) {
-  const formatDate = new Intl.DateTimeFormat("ru-Ru").format(date);
+  const formatDate = new Intl.DateTimeFormat("ru-RU").format(
+    new Date(date + "T12:00")
+  );
 
   return (
     <>
