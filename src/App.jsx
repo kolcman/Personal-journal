@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
@@ -9,6 +9,23 @@ import LeftPanel from "./layout/LeftPanel/LeftPanel";
 
 function App() {
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const initialData = JSON.parse(localStorage.getItem("data"));
+    if (initialData) {
+      setData(
+        initialData.map((item) => ({
+          ...item,
+        }))
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    if (data.length) {
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+  }, [data]);
 
   const addJournalItem = (item) => {
     setData((prev) => [...prev, item]);
