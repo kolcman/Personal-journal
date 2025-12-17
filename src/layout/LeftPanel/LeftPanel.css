@@ -1,5 +1,7 @@
-.journal-form {
+.left-panel {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 0 20px;
+  min-width: 400px;
 }

@@ -1,13 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import CardButton from "./components/CardButton/CardButton";
 import Header from "./components/Header/Header";
 import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
 import JournalForm from "./components/JournalForm/JournalForm";
-import JournalItem from "./components/JournalItem/JournalItem";
 import JournalList from "./components/JournalList/JournalList";
-import Body from "./components/layout/Body/Body";
-import LeftPanel from "./components/layout/LeftPanel/LeftPanel";
+import Body from "./layout/Body/Body";
+import LeftPanel from "./layout/LeftPanel/LeftPanel";
 
 function App() {
   const [data, setData] = useState([]);
@@ -21,16 +19,9 @@ function App() {
       <LeftPanel>
         <Header />
         <JournalAddButton />
-        <JournalList>
-          {data.map((item) => (
-            <CardButton key={item.id}>
-              <JournalItem {...item} />
-            </CardButton>
-          ))}
-        </JournalList>
+        <JournalList items={data} />
       </LeftPanel>
       <Body>
-        <h1>Body</h1>
         <JournalForm onSubmit={addJournalItem} />
       </Body>
     </div>
